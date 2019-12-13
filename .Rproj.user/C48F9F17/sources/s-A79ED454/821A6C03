@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576264087678.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2674341372",
+    "id" : "821A6C03",
+    "lastKnownWriteTime" : 1576263993,
+    "last_content_update" : 1576263993,
+    "path" : "~/Documents/R/datasciencecoursera/course_3/Code Book.rmd",
+    "project_path" : "Code Book.rmd",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

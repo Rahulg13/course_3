@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576264092134.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3861971468",
+    "id" : "CC7AE6DE",
+    "lastKnownWriteTime" : 1576259152,
+    "last_content_update" : 1576259152,
+    "path" : "~/Documents/R/datasciencecoursera/course_3/run_analysis.R",
+    "project_path" : "run_analysis.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,36 @@
+---
+title: "Code Book"
+author: "Rahulg13"
+date: "13/12/2019"
+output: pdf_document
+---
+
+## **VARIABLES**
+Following are the variables used in the script run_analysis.R for the purpose of creating tidy data set for the Samsung Phone sensor data.
+
+```{r pressure, echo=FALSE}
+#Creating variable lists
+```
+1. vardata : reads variable names from feature.txt 
+2. variables : contains separated variable names from vardata
+3. act_label : reads activity labels from activity_labels.txt
+4. actlabels : contains separated variable names from act_label
+5. xtest : reads test data from X_test.txt file
+6. xtest1 : contained processed xtest data into a data frame
+7. subjecttest : subject data for test entries 
+8. ytest : activity data for test entries
+9. xtraining : reads training data from X_training.txt file
+10. xtraining1 : contained processed xtraining data into a data frame
+11. subjecttraining : subject data for training entries 
+12. ytraining :activity data for training entires
+13. testdata : collated test data with activity, subject and observations
+14. traindata : collated training data with activity, subject and observations
+15. fulldata : combined test and training data
+16. mean_index : the indices of columns where mean variables exist
+17. mean_data : the mean values for measurements
+18. std_index : the indices of columns where standard deviation variables exist
+19. std_index : the standard deviation values for measurements
+20. x : vector to keep tab of activity
+21. y : vector to keep tab of subjects
+22. l2 : tracks the total number of variables so that their averages are calculated one by one
+23. ans : final tidy data set 

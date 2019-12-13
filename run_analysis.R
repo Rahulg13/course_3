@@ -1,0 +1,78 @@
+#variables names drawn
+vardata <- read.csv("./UCI HAR Dataset/features.txt", header = FALSE, sep = "\t")
+vardata <- levels(vardata$V1)
+variables <- strsplit(vardata, " ")
+var_name <- function(x) { x[2] }
+variables <- sapply(variables, var_name)
+
+#reading activity_labels
+act_label <- read.csv("./UCI HAR Dataset/activity_labels.txt", header = FALSE, sep = "\t")
+act_label <- levels(act_label[,1])
+actlabels <- strsplit(act_label, " ")
+actlabels <- sapply(actlabels, var_name)
+
+#reading test data
+xtest <- readLines("./UCI HAR Dataset/test/X_test.txt")
+xtest1 <- strsplit(xtest, " |  ")
+xtest1 <- data.frame(matrix(unlist(xtest1), nrow = length(xtest1), byrow = TRUE))
+
+# removes the empty column that appears due to spaces in start
+l <- length(xtest1)
+xtest1 <- xtest1[ , 2:l]
+# names the columns
+names(xtest1) <- variables
+ytest <- read.csv("./UCI HAR Dataset/test/y_test.txt", header = FALSE, sep = "\t")
+subjecttest <- read.csv("./UCI HAR Dataset/test/subject_test.txt", header = FALSE, sep = "\t")
+testdata <- cbind(ytest, subjecttest, xtest1)
+
+#reading training data
+xtraining <- readLines("./UCI HAR Dataset/train/X_train.txt")
+xtraining1 <- strsplit(xtraining," |  ")
+xtraining1 <- data.frame(matrix(unlist(xtraining1), nrow = length(xtraining1), byrow = TRUE))
+
+#removes the empty column from start
+l <- length(xtraining1)
+xtraining1 <- xtraining1[ , 2:l]
+
+#names the columns
+names(xtraining1) <- variables
+ytrain <- read.csv("./UCI HAR Dataset/train/y_train.txt", header = FALSE, sep = "\t")
+subjecttrain <- read.csv("./UCI HAR Dataset/train/subject_train.txt", header = FALSE, sep = "\t")
+traindata <- cbind(ytrain, subjecttrain, xtraining1)
+
+#merging data as per requirement 1 of Project
+fulldata <- rbind(testdata, traindata)
+#fulldata[,1:2] <- as.factor(fulldata[,1:2])
+
+#finding the standard deviation and mean variables
+mean_index <- grep("mean()", variables) + 2
+mean_data <- fulldata[, mean_index]
+std_index <- grep("std()", variables) + 2 
+std_data <- fulldata[, std_index]
+
+#descriptive activity names
+levels(fulldata[, 1]) <- actlabels
+
+#appropriate labels to the dataset
+names(fulldata)[1] <- "activity_name"
+names(fulldata)[2] <- "participant_number"
+
+#STep 5
+
+f1 <- fulldata$activity_name
+f2 <- fulldata$participant_number
+
+x <- rep(1:6, length= 180)
+y <- rep(1:30, each = 6)
+ans <- cbind(x, y)
+l2 <- ncol(fulldata) - 2
+z <- matrix(nrow = 180, ncol = l2)
+
+for (i in 1:(l2)) {
+        z[,i ] <- tapply(as.numeric(as.character(fulldata[,(i+2)])), list(f1, f2), mean, na.rm = TRUE)
+}
+
+ans <- cbind(x, y, z)
+ans <- as.data.frame(ans)
+names(ans) <- c("activity_name","participant_number", variables )
+

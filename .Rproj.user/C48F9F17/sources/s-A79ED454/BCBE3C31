@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576264091146.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2448488568",
+    "id" : "BCBE3C31",
+    "lastKnownWriteTime" : 1576263944,
+    "last_content_update" : 1576263944,
+    "path" : "~/Documents/R/datasciencecoursera/course_3/README.rmd",
+    "project_path" : "README.rmd",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
