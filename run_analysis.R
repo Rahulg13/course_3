@@ -5,6 +5,7 @@ variables <- strsplit(vardata, " ")
 var_name <- function(x) { x[2] }
 variables <- sapply(variables, var_name)
 
+
 #reading activity_labels
 act_label <- read.csv("./UCI HAR Dataset/activity_labels.txt", header = FALSE, sep = "\t")
 act_label <- levels(act_label[,1])
@@ -37,9 +38,16 @@ fulldata2 <- cbind(as.factor(fulldata[,1]), as.factor(fulldata[,2]), fulldata2)
 #descriptive activity names
 levels(fulldata2[,1]) <- actlabels
 
-#appropriate labels to the dataset + Variable names are kept same, for carrying most information already
+## appropriate labels to the dataset
+## Variable names have been changed to lower to reduce errors and minor changes made
+## But they are descriptive already
+variables <- tolower(variables)
+variables <- sub("^f", "frequency", variables)
+variables <- sub("^t", "time", variables)
+variables <- sub("()", "", variables)
 names(fulldata2) <- c("activity_name", "participant_number", variables[mean_index], variables[std_index])
 
 #STep 5
+library(dplyr)
 ans <- fulldata2 %>% group_by(activity_name, participant_number) %>% summarise_each(mean)
 ans
