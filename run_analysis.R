@@ -37,7 +37,7 @@ fulldata2 <- cbind(as.factor(fulldata[,1]), as.factor(fulldata[,2]), fulldata2)
 #descriptive activity names
 levels(fulldata2[,1]) <- actlabels
 
-#appropriate labels to the dataset
+#appropriate labels to the dataset + Variable names are kept same, for carrying most information already
 names(fulldata2) <- c("activity_name", "participant_number", variables[mean_index], variables[std_index])
 
 #STep 5

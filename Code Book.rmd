@@ -30,3 +30,10 @@ Following are the variables used in the script run_analysis.R for the purpose of
 17. std_index : the standard deviation values for measurements
 18. fulldata2 : contains combined data of mean and standard deviation
 19. ans : final tidy data set 
+
+## Variable in the tidy.txt are - 
+
+```{r}
+ans <- read.table("tidydata.txt", header =  TRUE)
+names(ans)
+```
