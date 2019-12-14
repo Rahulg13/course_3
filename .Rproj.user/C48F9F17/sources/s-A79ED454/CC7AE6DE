@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3861971468",
+    "hash" : "0",
     "id" : "CC7AE6DE",
-    "lastKnownWriteTime" : 1576259152,
-    "last_content_update" : 1576259152,
+    "lastKnownWriteTime" : 1576266030,
+    "last_content_update" : 1576266030988,
     "path" : "~/Documents/R/datasciencecoursera/course_3/run_analysis.R",
     "project_path" : "run_analysis.R",
     "properties" : {
+        "cursorPosition" : "54,16",
+        "scrollLine" : "43"
     },
     "read_only" : false,
     "read_only_alternatives" : [

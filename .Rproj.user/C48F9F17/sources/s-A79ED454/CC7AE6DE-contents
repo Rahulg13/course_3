@@ -49,30 +49,32 @@ mean_index <- grep("mean()", variables) + 2
 mean_data <- fulldata[, mean_index]
 std_index <- grep("std()", variables) + 2 
 std_data <- fulldata[, std_index]
-
+fulldata2 <- cbind(mean_data, std_data)
+fulldata2 <- cbind(ytrain, subjecttrain,fulldata)
 #descriptive activity names
-levels(fulldata[, 1]) <- actlabels
+levels(fulldata2[, 1]) <- actlabels
 
 #appropriate labels to the dataset
-names(fulldata)[1] <- "activity_name"
-names(fulldata)[2] <- "participant_number"
+names(fulldata2)[1] <- "activity_name"
+names(fulldata2)[2] <- "participant_number"
 
 #STep 5
 
-f1 <- fulldata$activity_name
-f2 <- fulldata$participant_number
+f1 <- fulldata2$activity_name
+f2 <- fulldata2$participant_number
 
 x <- rep(1:6, length= 180)
 y <- rep(1:30, each = 6)
 ans <- cbind(x, y)
-l2 <- ncol(fulldata) - 2
+l2 <- ncol(fulldata2) - 2
 z <- matrix(nrow = 180, ncol = l2)
 
 for (i in 1:(l2)) {
-        z[,i ] <- tapply(as.numeric(as.character(fulldata[,(i+2)])), list(f1, f2), mean, na.rm = TRUE)
+        z[,i ] <- tapply(as.numeric(as.character(fulldata2[,(i+2)])), list(f1, f2), mean, na.rm = TRUE)
 }
 
 ans <- cbind(x, y, z)
 ans <- as.data.frame(ans)
 names(ans) <- c("activity_name","participant_number", variables )
+ans
 
