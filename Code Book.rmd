@@ -33,7 +33,7 @@ Following are the variables used in the script run_analysis.R for the purpose of
 
 ## Variable in the tidy.txt are - 
 
-```{r}
+```{r, echo = FALSE}
 ans <- read.table("tidydata.txt", header =  TRUE)
-names(ans)
+cat(names(ans), sep = "\n")
 ```
